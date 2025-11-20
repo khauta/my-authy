@@ -1,0 +1,24 @@
+{
+  "name": "my-authy",
+  "version": "1.0.0",
+  "description": "my-authy is a simple implementation of the ms or google authenticator style web login",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "y"
+  },
+  "keywords": [
+    "my-authy",
+    "authenticator-server"
+  ],
+  "author": "Khauta Maliehe",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "otplib": "^12.0.1",
+    "qrcode": "^1.5.4"
+  }
+}
