@@ -1,0 +1,9 @@
+[
+    {
+        "id": "user-1",
+        "email": "user@example.com",
+        "password": "$2b$10$.SGmr.K.xqN9hxbg3WQFP.jMV1gr2Oo2je7A2t87ITY5hRimbLC3u",
+        "twoFactorSecret": null,
+        "isTwoFactorVerified": false
+    }
+]
