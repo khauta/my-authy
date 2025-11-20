@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Authy Setup & Verification Demo</title>
+</head>
+<body>
+  <h1>Authenticator Setup</h1>
+  <button onclick="setupKey()">Setup Authenticator</button>
+  <div id="qr"></div>
+  <div id="secret"></div>
+
+  <h2>Verify Token</h2>
+  <input type="text" id="token" placeholder="Enter code from app">
+  <button onclick="verify()">Verify</button>
+  <div id="result"></div>
+
+  <script>
+    async function setupKey() {
+      let res = await fetch('/setup');
+      let data = await res.json();
+      document.getElementById('qr').innerHTML = `<img src="${data.qrUrl}" alt="QR Code">`;
+      document.getElementById('secret').innerText = "Secret: " + data.secret;
+    }
+
+    async function verify() {
+      let token = document.getElementById('token').value.trim();
+      let res = await fetch('/verify', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ token })
+      });
+      let data = await res.json();
+      document.getElementById('result').innerText = data.valid ? "✅ Valid!" : "❌ Invalid.";
+    }
+  </script>
+</body>
+</html>
